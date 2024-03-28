@@ -4,10 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 import utilities.ReadPropertiesFile;
 
 import java.io.FileReader;
@@ -18,7 +15,7 @@ public class TestBase {
     public static WebDriver driver;
     ReadPropertiesFile readPropertiesFile =new ReadPropertiesFile();
 
-@BeforeClass
+@BeforeTest
     public void setUp() throws IOException {
         if (driver==null){
             String userBrowser =readPropertiesFile.valueOf("browser");
@@ -37,7 +34,7 @@ public class TestBase {
     }
 
 
-   @AfterClass
+   @AfterTest
     public void tearDown(){
         driver.close();
     }
