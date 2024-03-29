@@ -4,6 +4,7 @@ import base.TestBase;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import testcases.page.LoginPage;
+import utilities.ReadXLSfiles;
 
 import java.io.IOException;
 
@@ -11,7 +12,7 @@ public class LoginTest extends TestBase {
 
     LoginPage lg=new LoginPage();
 
-    @Test(dataProvider = "loggin_Credentials")
+    @Test(dataProviderClass = ReadXLSfiles.class,dataProvider = "loggin_Credentials")
     public void loginTest(String userName, String password) throws IOException, InterruptedException {
         lg.enterUserName(userName);
         lg.enterPassword(password);
@@ -19,7 +20,7 @@ public class LoginTest extends TestBase {
        // Thread.sleep(7000);
     }
 
-    @DataProvider(name="loggin_Credentials")
+    //@DataProvider(name="loggin_Credentials")
     public  Object[][] loginUsers(){
           return new Object[][]{
             {"standard_user","secret_sauce"},
