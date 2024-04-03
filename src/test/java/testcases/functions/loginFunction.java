@@ -7,13 +7,12 @@ import java.io.IOException;
 
 public class loginFunction extends LoginPage {
 
-@DataProvider(name = "jsondata")
-    public void Login (String credentials) {
 
+   /* public void Login (String credentials) {
         enterUserName(userName);
         enterPassword(password);
         clickLogin();
-    }
+    }*/
     
 
 }

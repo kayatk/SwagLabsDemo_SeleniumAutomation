@@ -9,13 +9,17 @@ import utilities.ReadXLSfiles;
 
 import java.io.IOException;
 
-public class LoginTest extends loginFunction {
+public class LoginTest extends LoginPage{
 
 
    // @Test(dataProviderClass = ReadXLSfiles.class,dataProvider = "loggin_Credentials")
-    @Test()
-    public void validUserLogins(String userName, String password) {
 
+    @Test(dataProvider = "jsondata")
+    public void validUserLogins(String arr) {
+        String users[] =arr.split(",");
+        enterUserName(users[0]);
+        enterPassword(users[1]);
+        clickLogin();
 
     }
     @Test()

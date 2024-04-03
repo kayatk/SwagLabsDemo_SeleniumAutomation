@@ -1,6 +1,10 @@
 package base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -38,4 +42,26 @@ public class TestBase {
     public void tearDown(){
         driver.close();
     }
+
+    @DataProvider(name= "jsondata")
+    public String[] jsonReader() throws IOException, ParseException {
+
+        JSONParser Parser = new JSONParser();
+        FileReader reader =new FileReader("src/test/resources/testdata/loginData.json");
+        Object obj =  Parser.parse(reader);
+
+        JSONObject jobj = (JSONObject) obj;
+        JSONArray arr =(JSONArray) jobj.get("loginCredentials");
+
+        String array[] =new String [arr.size()];
+
+        for(int i= 0;i<arr.size();i++){
+            JSONObject users =(JSONObject) arr.get(i);
+            String username =(String)users.get("username");
+            String password =(String)users.get("password");
+            array[i] = username +","+password;
+        }
+        return array;
+    }
+
 }
