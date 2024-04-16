@@ -1,6 +1,5 @@
 package testcases.page;
 
-import base.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -26,7 +25,7 @@ public class LoginPage extends TestBase {
     }
 
     public void clickLogin(){
-        loginBtn = driver.findElement(By.id("login-button"));
+       loginBtn = driver.findElement(By.id("login-button"));
       if(loginBtn.isDisplayed()){
           loginBtn.click();
       }
@@ -36,5 +35,6 @@ public class LoginPage extends TestBase {
        // System.out.println(userName_txtBx);
         userName_txtBx.clear();
     }
+
 
 }

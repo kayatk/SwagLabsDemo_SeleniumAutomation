@@ -8,11 +8,12 @@ import java.io.IOException;
 public class loginFunction extends LoginPage {
 
 
-   /* public void Login (String credentials) {
-        enterUserName(userName);
-        enterPassword(password);
-        clickLogin();
-    }*/
+   public void Login (String arr) {
+       String users[] =arr.split(",");
+       enterUserName(users[0]);
+       enterPassword(users[1]);
+       clickLogin();
+    }
     
 
 }
