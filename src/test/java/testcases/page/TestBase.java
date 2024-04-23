@@ -25,7 +25,7 @@ public class TestBase {
     public void setUp() throws IOException {
         String userBrowser = readPropertiesFile.valueOf("browser");
         if (userBrowser.equalsIgnoreCase("chrome")) {
-            WebDriverManager.chromedriver().setup();
+            WebDriverManager.chromedriver().clearDriverCache().setup();
             ChromeOptions options = new ChromeOptions();
             // Additional options if needed
             driver = new ChromeDriver(options);

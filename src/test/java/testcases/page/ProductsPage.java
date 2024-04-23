@@ -14,6 +14,11 @@ public class ProductsPage extends TestBase {
     }
 
     public  void clickLogout(){
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         logOut = driver.findElement(By.id("logout_sidebar_link"));
         logOut.click();
     }
