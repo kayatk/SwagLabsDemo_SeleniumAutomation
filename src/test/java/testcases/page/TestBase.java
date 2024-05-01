@@ -52,10 +52,12 @@ public class TestBase {
 
         JSONParser Parser = new JSONParser();
         FileReader reader =new FileReader("src/test/resources/testdata/loginData.json");
+        FileReader infoReader =new FileReader("src/test/resources/testdata/checkoutInfo.json");
         Object obj =  Parser.parse(reader);
 
         JSONObject jobj = (JSONObject) obj;
         JSONArray arr =(JSONArray) jobj.get("loginCredentials");
+        JSONArray infoArr =(JSONArray)jobj.get("personalInfo");
 
         String array[] =new String [arr.size()];
 

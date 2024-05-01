@@ -1,13 +1,16 @@
 package testcases.tests;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import testcases.functions.loginFunction;
+import testcases.page.InformationPage;
 import testcases.page.MyCartPage;
 import testcases.page.ProductsPage;
 
 public class AddToCart extends ProductsPage {
     loginFunction loginFn = new loginFunction();
     MyCartPage myCartPage =new MyCartPage();
+    InformationPage info =new InformationPage();
 
     @Test(dataProvider = "jsondata")
     public void verifyMyCartNavigation(String ar){
@@ -53,4 +56,46 @@ public class AddToCart extends ProductsPage {
         clickMyCart();
         myCartPage.clickCheckOut();
     }
+
+    @Test(dataProvider = "jsondata")
+    public void checkout(String ar){
+        loginFn.Login(ar);
+        selectProduct();
+        selectProduct();
+        clickMyCart();
+        myCartPage.clickCheckOut();
+        info.enterFirstName("Test first Name");
+        info.enterLastName("Test Last Name");
+        info.enterZipCode("zip code");
+    }
+
+    @Test(dataProvider = "jsondata")
+    public void verifyCancelNavigation(String ar){
+        loginFn.Login(ar);
+        clickMyCart();
+        myCartPage.clickCheckOut();
+        info.clickCancel();
+    }
+
+    @Test(dataProvider ="jsondata")
+    public void verifyContinueWithoutProduct(String ar){
+        loginFn.Login(ar);
+        clickMyCart();
+        myCartPage.clickCheckOut();
+        info.clickContinue();
+    }
+
+    @Test(dataProvider ="jsondata")
+    public void verifyContinueWithProducts(String ar){
+        loginFn.Login(ar);
+        selectProduct();
+        selectProduct();
+        clickMyCart();
+        myCartPage.clickCheckOut();
+        info.enterFirstName("Test first Name");
+        info.enterLastName("Test Last Name");
+        info.enterZipCode("zip code");
+        info.clickContinue();
+    }
+
 }
