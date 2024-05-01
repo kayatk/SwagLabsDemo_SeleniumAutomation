@@ -8,6 +8,7 @@ import java.util.List;
 public class MyCartPage extends TestBase {
 
     WebElement continueShoppingBtn;
+    WebElement checkOut;
 
     public void clickRemove(){
         List<WebElement> addedProduct=driver.findElements(By.xpath("//button[text()='Remove']"));
@@ -16,6 +17,11 @@ public class MyCartPage extends TestBase {
 
     public void clickContinueShopping(){
         continueShoppingBtn =driver.findElement(By.id("continue-shopping"));
+        continueShoppingBtn.click();
+    }
+
+    public void clickCheckOut(){
+        continueShoppingBtn =driver.findElement(By.id("checkout"));
         continueShoppingBtn.click();
         try {
             Thread.sleep(2000);
