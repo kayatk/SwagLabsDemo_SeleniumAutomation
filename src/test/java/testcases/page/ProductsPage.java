@@ -43,6 +43,11 @@ public class ProductsPage extends TestBase {
         (products.get(0)).click();
 
     }
+    public void removeProduct(){
+        List<WebElement> products =driver.findElements(By.xpath("//button[text()='Remove']"));
+        (products.get(0)).click();
+
+    }
     public void clickProductName(){
         List<WebElement> productName =driver.findElements(By.xpath("//a[contains(@id,'title')]"));
         (productName.get(0)).click();

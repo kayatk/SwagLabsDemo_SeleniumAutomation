@@ -14,4 +14,14 @@ public class ProductDetailTest extends ProductsPage {
         selectProduct();
 
     }
+
+    @Test(dataProvider = "jsondata")
+    public void verifyRemoveProduct(String ar){
+        loginFunction loginFn = new loginFunction();
+        loginFn.Login(ar);
+        clickProductName();
+        selectProduct();
+        removeProduct();
+
+    }
 }
