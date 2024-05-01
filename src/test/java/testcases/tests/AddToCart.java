@@ -23,6 +23,20 @@ public class AddToCart extends ProductsPage {
         myCartPage.clickRemove();
     }
 
+    @Test(dataProvider = "jsondata")
+    public void verifyContinueShoppingWithoutProduct(String ar){
+        loginFn.Login(ar);
+        clickMyCart();
+        myCartPage.clickContinueShopping();
+    }
+
+    @Test(dataProvider = "jsondata")
+    public void verifyContinueShoppingWithProduct(String ar){
+        loginFn.Login(ar);
+        selectProduct();
+        clickMyCart();
+        myCartPage.clickContinueShopping();
+    }
 
 
 }
