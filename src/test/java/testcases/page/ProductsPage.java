@@ -12,6 +12,7 @@ public class ProductsPage extends TestBase {
     WebElement logOut;
     WebElement about;
     WebElement myCart;
+    WebElement productPageTitle;
 
     public  void clickMenu(){
         menu=driver.findElement(By.id("react-burger-menu-btn"));
@@ -27,7 +28,10 @@ public class ProductsPage extends TestBase {
         about.click();
     }
 
-
+    public void verifyTitle(){
+        productPageTitle = driver.findElement(By.xpath("//span[text()='Products']"));
+        productPageTitle.isDisplayed();
+    }
 
     public  void clickLogout(){
         try {

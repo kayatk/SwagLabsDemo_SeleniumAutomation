@@ -2,9 +2,10 @@ package testcases.tests;
 
 import org.testng.annotations.Test;
 import testcases.page.LoginPage;
+import testcases.page.ProductsPage;
 
 public class LoginTest extends LoginPage{
-
+      ProductsPage productPage= new ProductsPage();
 
     @Test(dataProvider = "jsondata",priority = 1)
     public void validUserLogins(String arr) {
@@ -12,7 +13,9 @@ public class LoginTest extends LoginPage{
         enterUserName(users[0]);
         enterPassword(users[1]);
         clickLogin();
-
+        productPage.verifyTitle();
+        screenshot();
+        
     }
 
 
@@ -32,7 +35,7 @@ public class LoginTest extends LoginPage{
     }
 
 
-
+   
 
  /*   @DataProvider(name="loggin_Credentials")
     public  Object[][] loginUsers(){
@@ -45,6 +48,9 @@ public class LoginTest extends LoginPage{
               //  {"visual_user","secret_sauce"}
         };
     }*/
+
+
+    
 
 
 }

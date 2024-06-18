@@ -5,14 +5,18 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.io.FileHandler;
 import org.testng.annotations.*;
 import utilities.ReadPropertiesFile;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -68,6 +72,17 @@ public class TestBase {
             array[i] = username +","+password;
         }
         return array;
+    }
+
+    public void screenshot(){
+        TakesScreenshot ts =(TakesScreenshot)driver;
+       File src = ts.getScreenshotAs(OutputType.FILE);
+       File dest= new File("src/test/resources/screenshots/screenshot.png");
+       try {
+        FileHandler.copy(src,dest);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
     }
 
 }
