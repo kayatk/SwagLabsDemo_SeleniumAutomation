@@ -41,8 +41,8 @@ public class LoginPage extends TestBase {
         pwdErrormsge.isDisplayed();
      }
 
-     public void userNAmeErrorMessage(){
-        userNameErrormsge = driver.findElement(By.xpath("//h3[contains(text(),'Password')]"));
+     public void verifyUserNameErrorMessage(){
+        userNameErrormsge = driver.findElement(By.xpath("//h3[contains(text(),'Username')]"));
         userNameErrormsge.isDisplayed();
      }
 }

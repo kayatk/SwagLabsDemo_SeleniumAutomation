@@ -33,7 +33,7 @@ public class LoginTest extends LoginPage{
         enterUserName("");
         enterPassword("");
         clickLogin();
-        
+        verifyUserNameErrorMessage();
     }
 
 
