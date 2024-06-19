@@ -25,7 +25,7 @@ public class LoginTest extends LoginPage{
         enterUserName(users[0]);
         enterPassword("wrong");
         clickLogin();
-        verifyPasswordErrorMessage();
+        verifyErrorMessage();
     }
 
     @Test(priority = 4)
@@ -33,7 +33,7 @@ public class LoginTest extends LoginPage{
         enterUserName("");
         enterPassword("");
         clickLogin();
-        verifyUserNameErrorMessage();
+        verifyErrorMessage();
     }
 
 

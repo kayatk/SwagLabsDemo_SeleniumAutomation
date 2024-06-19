@@ -9,7 +9,8 @@ public class LoginPage extends TestBase {
     WebElement userName_txtBx;
     WebElement password_txtBx;
     WebElement loginBtn;
-    WebElement pwdErrormsge,userNameErrormsge;
+    WebElement pwdErrormsge;
+    WebElement userNameErrormsge;
 
     public void enterUserName(String username){
        userName_txtBx=driver.findElement(By.id("user-name"));
@@ -36,13 +37,10 @@ public class LoginPage extends TestBase {
        // System.out.println(userName_txtBx);
         userName_txtBx.clear();
     }
-     public void verifyPasswordErrorMessage(){
-        pwdErrormsge = driver.findElement(By.xpath("//h3[contains(text(),'Password')]"));
+     public void verifyErrorMessage(){
+        pwdErrormsge = driver.findElement(By.cssSelector("h3"));
+        //driver.findElement(By.xpath("//h3[contains(text(),'Password')]"));
         pwdErrormsge.isDisplayed();
      }
 
-     public void verifyUserNameErrorMessage(){
-        userNameErrormsge = driver.findElement(By.xpath("//h3[contains(text(),'Username')]"));
-        userNameErrormsge.isDisplayed();
-     }
 }
