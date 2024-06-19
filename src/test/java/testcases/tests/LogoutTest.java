@@ -2,7 +2,6 @@ package testcases.tests;
 
 import org.testng.annotations.Test;
 import testcases.functions.loginFunction;
-import testcases.page.LoginPage;
 import testcases.page.ProductsPage;
 
 
