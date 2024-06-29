@@ -9,6 +9,7 @@ public class MyCartPage extends TestBase {
 
     WebElement continueShoppingBtn;
     WebElement checkOut;
+    ProductsPage productPage = new ProductsPage();
 
     public void clickRemove(){
         List<WebElement> addedProduct=driver.findElements(By.xpath("//button[text()='Remove']"));
@@ -29,4 +30,16 @@ public class MyCartPage extends TestBase {
             e.printStackTrace();
         }
     }
+
+     public void verifyAddedProduct(){
+        List<WebElement> addedprods = driver.findElements(By.xpath("//div[@class='inventory_item_name']"));
+
+        for(int i=0; i<addedprods.size();i++){
+            if ((productPage.addedProductName).equals(addedprods.get(i).getText())) {
+                System.out.println("Added Product "+productPage.addedProductName+ "in My Cart Page" );
+                break;
+            }
+            
+        }     
+     }
 }

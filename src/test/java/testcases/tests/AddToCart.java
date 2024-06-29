@@ -98,4 +98,5 @@ public class AddToCart extends ProductsPage {
         info.clickContinue();
     }
 
+
 }

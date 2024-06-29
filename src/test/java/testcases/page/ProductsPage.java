@@ -3,7 +3,6 @@ package testcases.page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductsPage extends TestBase {
@@ -13,6 +12,8 @@ public class ProductsPage extends TestBase {
     WebElement about;
     WebElement myCart;
     WebElement productPageTitle;
+
+    String addedProductName;
 
     public  void clickMenu(){
         menu=driver.findElement(By.id("react-burger-menu-btn"));
@@ -45,7 +46,7 @@ public class ProductsPage extends TestBase {
     public void selectProduct(){
         List<WebElement> products =driver.findElements(By.xpath("//button[text()='Add to cart']"));
         (products.get(0)).click();
-
+        //addedProductName= (products.get(0)).getText();
     }
     public void removeProduct(){
         List<WebElement> products =driver.findElements(By.xpath("//button[text()='Remove']"));
